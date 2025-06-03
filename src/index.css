@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply antialiased;
+  }
+
+  /* Improve focus styles */
+  :focus-visible {
+    @apply outline-none ring-2 ring-blue-500;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply bg-white/30 backdrop-blur-lg backdrop-filter;
+  }
+  
+  .glass-effect-dark {
+    @apply bg-gray-900/30 backdrop-blur-lg backdrop-filter;
+  }
+}
+
+/* Animation for form transitions */
+.form-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.form-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+.form-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+.form-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
